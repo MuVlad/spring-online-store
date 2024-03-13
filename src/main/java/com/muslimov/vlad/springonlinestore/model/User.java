@@ -1,12 +1,7 @@
 package com.muslimov.vlad.springonlinestore.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
@@ -30,8 +25,8 @@ public class User {
     )
     private Long id;
     private String name;
-    private String phone;
     private String email;
+    private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
     @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
