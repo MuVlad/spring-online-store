@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: /prod/db.changelog-init-db-prod-1.sql
+      relativeToChangelogFile: true
+  - include:
+      file: /prod/db.changelog-add-users-prod-2.sql
+      relativeToChangelogFile: true
+  - include:
+      file: /prod/db.changelog-add-products-prod-3.sql
+      relativeToChangelogFile: true
