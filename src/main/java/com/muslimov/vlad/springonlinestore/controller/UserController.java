@@ -27,8 +27,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Удаление клиента")
-    public HttpEntity<?> deleteClient(@PathVariable("id") Long id) {
+    @Operation(summary = "Удаление пользователя")
+    public HttpEntity<?> deleteUser(@PathVariable("id") Long id) {
 
         userService.delete(id);
         return ResponseEntity.noContent().build();

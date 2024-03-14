@@ -15,4 +15,8 @@ public interface UserService extends UserDetailsService {
     List<UserDto> getAll();
 
     void delete(Long id);
+
+    User findByName(String name);
+
+    User findByIdOrThrow(Long id);
 }

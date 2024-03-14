@@ -7,6 +7,7 @@ import com.muslimov.vlad.springonlinestore.mapper.UserMapper;
 import com.muslimov.vlad.springonlinestore.model.Role;
 import com.muslimov.vlad.springonlinestore.model.User;
 import com.muslimov.vlad.springonlinestore.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Override
+    @Transactional
     public UserDto save(UserDto userDto) {
 
         if (!Objects.equals(userDto.password(), userDto.matchingPassword())) {
@@ -63,6 +65,11 @@ public class UserServiceImpl implements UserService {
         return userRepository.findFirstByName(name).orElseThrow(
             () -> new NotFoundException("Пользователь с именем:" + name + " не найден!")
         );
+    }
+
+    @Override
+    public User findByIdOrThrow(Long id) {
+        return userRepository.findByIdOrThrow(id);
     }
 
     @Override
