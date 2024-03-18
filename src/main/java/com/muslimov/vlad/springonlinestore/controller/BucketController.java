@@ -18,7 +18,7 @@ public class BucketController {
     private final BucketService bucketService;
 
     @GetMapping
-    @Operation(summary = "Получение корзины")
+    @Operation(summary = "Получение информации о корзине")
     public HttpEntity<BucketDto> getBucketByUser(@RequestParam Long userId) {
 
         return ResponseEntity.ok(bucketService.getBucketByUser(userId));

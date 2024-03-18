@@ -33,7 +33,8 @@ public class SecurityConfig {
                 authorize
                     .requestMatchers("/api/v1/auth").permitAll()
                     .requestMatchers("/api/v1/registration").permitAll()
-                    .requestMatchers("/api/v1/users**").hasRole("ADMIN") //TODO добить список
+                    .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/swagger.html").permitAll()
+                    .requestMatchers("/api/v1/users**").hasRole("ADMIN")
                     .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
