@@ -24,7 +24,7 @@ public class User {
         allocationSize = 1
     )
     private Long id;
-    private String name;
+    private String username;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)

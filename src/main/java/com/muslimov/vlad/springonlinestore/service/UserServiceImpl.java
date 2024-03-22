@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
 
     public User findByName(String name) {
 
-        return userRepository.findFirstByName(name).orElseThrow(
+        return userRepository.findFirstByUsername(name).orElseThrow(
             () -> new NotFoundException("Пользователь с именем:" + name + " не найден!")
         );
     }
@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
         roles.add(new SimpleGrantedAuthority(user.getRole().name()));
 
         return new org.springframework.security.core.userdetails.User(
-            user.getName(),
+            user.getUsername(),
             user.getPassword(),
             roles
         );

@@ -6,7 +6,7 @@ create sequence if not exists user_seq start with 3 increment by 1;
 create table if not exists users (
                                     id bigint not null,
                                     email varchar(255),
-                                    name varchar(255),
+                                    username varchar(255),
                                     password varchar(255),
                                     role varchar(255),
                                     primary key (id)
