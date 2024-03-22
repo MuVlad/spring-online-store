@@ -39,7 +39,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.addProduct(productDto));
     }
 
-    @GetMapping("/{id}/bucket")
+    @PostMapping("/{id}/bucket")
     @Operation(summary = "Добавление продукта в корзину")
     public HttpEntity<?> addProductToBucket(
         @PathVariable Long id,
